@@ -1,0 +1,4 @@
+1,SpringMvc 请求和返回的数据包含中文的时候出现乱码？
+@RequestMapping(）中设置produces属性produces="text/html;charset=UTF-8"
+
+2，
