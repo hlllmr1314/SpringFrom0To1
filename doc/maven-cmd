@@ -1,0 +1,32 @@
+mvn clean : 清除目标目录中的生成结果
+mvn compile ：编译源代码
+mvn test-compile ：编译测试代码
+mvn site ： 生成项目相关信息的网站
+mvn package ： 依据项目生成 jar 文件
+mvn install ：在本地 Repository 中安装 jar
+
+
+
+插件	      描述
+clean	  构建之后清理目标文件。删除目标目录。
+compiler  编译 Java 源文件。
+surefile  运行 JUnit 单元测试。创建测试报告。
+jar	      从当前工程中构建 JAR 文件。
+war	      从当前工程中构建 WAR 文件。
+javadoc	  为工程生成 Javadoc。
+antrun	  从构建过程的任意一个阶段中运行一个 ant 任务的集合。
+
+
+<dependency>
+    <groupId>ldapjdk</groupId>
+    <artifactId>ldapjdk</artifactId>
+    <scope>system</scope>
+    <version>1.0</version>
+    <systemPath>${basedir}\src\lib\ldapjdk.jar</systemPath>
+</dependency>
+
+外部依赖（library jar location）能够像其他依赖一样在 pom.xml 中配置。
+指定 groupId 为 library 的名称。
+指定 artifactId 为 library 的名称。
+指定作用域（scope）为系统。
+指定相对于工程位置的系统路径。
