@@ -1,0 +1,5 @@
+1,Edit Configuration -> tomcat -> Local -> 选择本地已经下载好的tomcat -> Ok
+2,Project Structure -> artifacts -> add -> Web Application -> from module -> apply生成一个war
+3，返回Tomecat配置add一下刚刚创建的artifacts -> Ok，这个时候会报错"environment variable name is not set" ，不知道是啥，勾选一下Pass environment variables
+4，Publish web project to tomecat
+
