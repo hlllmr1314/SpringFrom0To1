@@ -1,0 +1,11 @@
+1, Spring Boot 并不会自动配置第三方 jar 资源文件。
+因为 @SpringBootApplication 注解包含 @ComponentScan 注解，项目启动时 Spring 只扫描与 SpringbootApplication 类同目录和子目录下的类文件，引入第三方 jar 文件无法被扫描，因此不能被 Spring 容器管理。
+
+2，解决方案：
+ 方式一：
+ 在启动类 SpringbootApplication 上添加 @Import(CacheConfirguration.class)。
+
+ 方式二：
+ 在 Maven 项目的 src/main/resources 目录下创建 META-INF 文件夹，在该文件夹下再创建 spring.factories 文件，内容如下：
+ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ com.light.cache.CacheConfirguration
