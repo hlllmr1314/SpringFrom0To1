@@ -1,0 +1,14 @@
+在 src/main/resources 目录下创建三个配置文件:
+application-dev.properties：用于开发环境
+application-test.properties：用于测试环境
+application-prod.properties：用于生产环境
+
+我们可以在这个三个配置文件中设置不同的信息，application.properties 配置公共的信息。
+
+在 application.properties 中配置：
+spring.profiles.active=dev
+
+application-dev.properties文件下配置端口号等参数：
+serverPORT=8080
+
+切换项目启动的环境不仅对读取配置文件信息有效，也可以对 Bean 有效。当我们需要对不同环境使用不同的 Bean 时，可以通过 @Profile 注解进行区分

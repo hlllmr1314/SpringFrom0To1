@@ -1,28 +1,30 @@
 package com.haley.spring0to1.web.controller;
 
 import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/api")
 public class TestController {
 
+    @Autowired
+    private Runnable runnable;
+
     //带参数和属性的Get请求
     @RequestMapping(value = "/testget/{name}/{age}", method = RequestMethod.GET, produces = "text/html;charset=UTF-8", params = "myParam=myValue")
     @ResponseBody
-    public String testGet(@PathVariable(value = "name") String name1,@PathVariable(value = "age") int age1, @RequestParam String testP) {
-        return "hello Get，你好啊:" + name1 + " age:"+age1+ " testP:" + testP;
+    public String testGet(@PathVariable(value = "name") String name1, @PathVariable(value = "age") int age1, @RequestParam String testP) {
+        return "hello Get，你好啊:" + name1 + " age:" + age1 + " testP:" + testP;
     }
 
     //
     @RequestMapping(value = "/testget2/{leftId}", method = RequestMethod.GET)
     @ResponseBody
-    public String testGet2(@PathVariable String leftId, @MatrixVariable(name = "q",pathVar = "leftId") String int1) {
-        return "hello Get，你好啊 int1:" + int1 +" leftId:"+leftId;
+    public String testGet2(@PathVariable String leftId, @MatrixVariable(name = "q", pathVar = "leftId") String int1) {
+        return "hello Get，你好啊 int1:" + int1 + " leftId:" + leftId;
     }
 
     @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET)
@@ -43,6 +45,8 @@ public class TestController {
     @RequestMapping(value = "/testjsonpost", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public String testJsonPost(@RequestBody String test) {
+
+        runnable.run();
 
         //解析传入的json
         JSONObject jsonObject = JSONObject.fromObject(test);
