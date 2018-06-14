@@ -70,6 +70,15 @@
             <classifier>jdk15</classifier>
         </dependency>
         <!--json工具 end-->
+
+        <!-- 热部署 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>true</scope>
+        </dependency>
+
     </dependencies>
 
 
@@ -81,6 +90,10 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <!-- 没有该配置，devtools 不生效 -->
+                        <fork>true</fork>
+                    </configuration>
                 </plugin>
 
                 <plugin>

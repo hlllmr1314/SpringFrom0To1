@@ -1,0 +1,46 @@
+spring boot：
+该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。Spring Boot本身就已经引入了很多的第三方类库，所以我们在引入类库的时候如果spring boot里面已经引入，则前面会有一个标示。
+也不需要配置servlet。
+<!-- 定义公共资源版本 -->
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.6.RELEASE</version>
+    <relativePath />
+</parent>
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+</properties>
+<dependencies>
+    <!-- 上边引入 parent，因此 下边无需指定版本 -->
+    <!-- 包含 mvc,aop 等jar资源 -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+
+@SpringBootApplication
+public class SpringbootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootApplication.class, args);
+    }
+}
+
+@RestController
+public class TestController {
+    @GetMapping("/helloworld")
+    public String helloworld() {
+        return "helloworld";
+    }
+}
