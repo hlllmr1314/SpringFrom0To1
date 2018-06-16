@@ -1,0 +1,9 @@
+1,修改/src/main/resources/banner.txt里的文本,没有则新建
+2，http://patorjk.com/software/taag  这跟网站生产想要的内容
+3，rebuild -> riun 即可生效
+4,可以关闭banner或者控制banner的输出，可以输出到控制台上、输出到log中：
+SpringApplication app = new SpringApplication(DemoApplication.class);
+app.setBannerMode(Banner.Mode.OFF);// 关闭启动Banner
+app.setBannerMode(Banner.Mode.CONSOLE);// 输出Banner到控制台
+app.setBannerMode(Banner.Mode.LOG);// 输出Banner到日志中
+app.run(args);
