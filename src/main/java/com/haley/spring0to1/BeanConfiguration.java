@@ -1,6 +1,5 @@
 package com.haley.spring0to1;
 
-import com.haley.spring0to1.domain.model.DataSourceProperties;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
