@@ -1,4 +1,5 @@
 1,SpringMvc 请求和返回的数据包含中文的时候出现乱码？
 @RequestMapping(）中设置produces属性produces="text/html;charset=UTF-8"
 
-2，
+2，Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'com.haley.spring0to1.domain.model.DataSourceProperties' available: expected single matching bean but found 2: dataSourceProperties,ds-com.haley.spring0to1.domain.model.DataSourceProperties
+这个异常出现的原因是因为我代码中已经是用自动注入@Autowired了这个类，所以我们再使用context.getBean(DataSourceProperties.class)的时候就会报这个异常

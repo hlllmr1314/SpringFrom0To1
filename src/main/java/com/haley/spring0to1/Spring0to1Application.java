@@ -23,7 +23,6 @@ public class Spring0to1Application {
 //        application.setBannerMode(Banner.Mode.LOG);// 输出Banner到日志中
 
         ConfigurableApplicationContext context = application.run(args);
-        context.getBean(DataSourceProperties.class).show();
 
     }
 }
