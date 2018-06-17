@@ -1,0 +1,29 @@
+1,新建一个.properties文件,添加一些键值对
+2,新建一个实体类，用于解析并读取配置文件中的类容。eg：
+ @Component
+ @ConfigurationProperties(prefix = "http", ignoreUnknownFields = false)
+ @PropertySource("classpath:config/http.properties")
+ public class HttpCustomeProperties {
+
+     private int timeout;
+
+     public int getTimeout() {
+         return timeout;
+     }
+
+     public void setTimeout(int timeout) {
+         this.timeout = timeout;
+     }
+
+ }
+
+ @ConfigurationProperties(prefix = "remote", ignoreUnknownFields = false) 该注解用于绑定属性。prefix用来选择属性的前缀，也就是在remote.properties文件中的“remote”，ignoreUnknownFields是用来告诉SpringBoot在有属性不能匹配到声明的域时抛出异常。
+ @PropertySource("classpath:config/remote.properties") 配置文件路径
+ @Component 标识为Bean
+
+ 3，如何使用？
+ 在想要使用配置文件的方法所在类上表上注解
+ @EnableConfigurationProperties({HttpCustomeProperties.class})
+ 并自动注入
+ @Autowired
+    private HttpCustomeProperties httpCustomeProperties;
