@@ -1,0 +1,17 @@
+1，keytool -genkey -alias tomecat,我生成来一个放在根目录下面
+2，application.properties配置相关参数
+server.ssl.enabled=true
+server.ssl.key-store=.keystore
+server.ssl.key-store-password=spring0to1
+server.ssl.key-store-type=JKS
+server.ssl.key-alias=tomecat
+
+3,mac安装证书需要将keystore转成cer，keytool -export -alias "别名" -keystore "keystore文件路径" -file "cer文件保存目录"
+
+4，安装cer证书，设置为始终信任
+
+5，下载postman客户端，做下面2件事：
+ 1. File->Setting->General，关闭“SSL certificate verification”
+ 2.File->Setting->GCertificates ,添加cer证书
+
+6，测试接口把

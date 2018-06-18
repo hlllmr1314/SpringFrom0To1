@@ -1,3 +1,5 @@
+https://blog.csdn.net/gebitan505/article/details/70142155这个文章介绍的很详细。
+
 spring boot 默认会加载 classpath:logback-spring.xml 或者 classpath:logback-spring.groovy。
 如需要自定义文件名称，在 application.properties 中配置 logging.config 选项即可。
 其中，springProfile 标签的 name 属性对应 application.properties 中的 spring.profiles.active 的配置。
@@ -65,3 +67,4 @@ spring boot 默认会加载 classpath:logback-spring.xml 或者 classpath:logbac
         </root>
     </springProfile>
 </configuration>
+
