@@ -1,11 +1,13 @@
 package com.haley.spring0to1.web.controller;
 
+import com.haley.spring0to1.domain.model.User;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.Map;
 
 @Controller
@@ -70,4 +72,17 @@ public class TestController {
         return "hello";
     }
 
+
+    @RequestMapping(value = "/user",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public User user() {
+        User user = new User();
+
+        user.setId(1);
+        user.setUsername("haley");
+        user.setPassword("haley123");
+        user.setBirthday(new Date());
+
+        return user;
+    }
 }
