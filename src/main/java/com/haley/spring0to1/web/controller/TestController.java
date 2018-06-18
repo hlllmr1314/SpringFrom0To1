@@ -6,6 +6,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @Controller
 @RequestMapping(value = "/api")
 public class TestController {
@@ -61,5 +63,12 @@ public class TestController {
         return result.toString();
     }
 
+
+    @RequestMapping("/hello")
+    public String hello(Map<String, Object> map) {
+        map.put("msg", "Hello Freemarker");
+        System.out.println("hello:"+map.size());
+        return "hello";
+    }
 
 }
