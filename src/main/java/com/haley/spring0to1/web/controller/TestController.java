@@ -63,10 +63,9 @@ public class TestController {
         return result.toString();
     }
 
-
-    @RequestMapping("/hello")
-    public String hello(Map<String, Object> map) {
-        map.put("msg", "Hello Freemarker");
+    @RequestMapping("hello")
+    public String hello(Map<String,Object> map) {
+        map.put("msg", "Hello Thymeleaf");
         System.out.println("hello:"+map.size());
         return "hello";
     }
