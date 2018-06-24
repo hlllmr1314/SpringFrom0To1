@@ -12,3 +12,5 @@ application-dev.properties文件下配置端口号等参数：
 serverPORT=8080
 
 切换项目启动的环境不仅对读取配置文件信息有效，也可以对 Bean 有效。当我们需要对不同环境使用不同的 Bean 时，可以通过 @Profile 注解进行区分
+
+要想多个环境都运行可以一个使用IDEA方式启动dev，另一个通过java -jar *.jar --spring.profile.active=prod 的方式启动prod。

@@ -65,15 +65,14 @@ public class TestController {
         return result.toString();
     }
 
-    @RequestMapping("hello")
-    public String hello(Map<String,Object> map) {
+    @RequestMapping(value ={"/hellp","/hi"})
+    public String hello(Map<String, Object> map) {
         map.put("msg", "Hello Thymeleaf");
-        System.out.println("hello:"+map.size());
+        System.out.println("hello:" + map.size());
         return "hello";
     }
 
-
-    @RequestMapping(value = "/user",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/user")
     @ResponseBody
     public User user() {
         User user = new User();
