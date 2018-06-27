@@ -115,6 +115,7 @@
                     <configuration>
                         <!-- 没有该配置，devtools 不生效 -->
                         <fork>true</fork>
+                        <addResources>true</addResources>
                     </configuration>
                 </plugin>
 

@@ -23,3 +23,8 @@
 </build>
 
 Recompile '。。。／*.java'
+
+
+如果使用的是Intellij IEDA开发工具，还需要到设置里将project automatically勾选上；File->Setting->Build,…->Compiler  将右侧project automatically勾上
+
+Intellij IEDA 使用ctrl+shift+a 快捷键搜索Registry，选择搜索出来的第一个,找到compiler.automake.allow.when.app.running，勾上开启此功能即可

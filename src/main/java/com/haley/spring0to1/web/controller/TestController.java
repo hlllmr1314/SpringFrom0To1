@@ -79,9 +79,8 @@ public class TestController {
 
         user.setId(1);
         user.setUsername("haley");
-        user.setPassword("12345");
+        user.setPassword("dad11112");
         user.setBirthday(new Date());
-
         return user;
     }
 }
