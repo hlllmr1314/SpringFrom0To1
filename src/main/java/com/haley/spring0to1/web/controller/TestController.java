@@ -60,7 +60,7 @@ public class TestController {
         JSONObject result = new JSONObject();
         result.put("name", "huanglei");
         result.put("age", 27);
-        result.put("accessToken", "test");
+        result.put("accessToken", "tests");
         result.put("value", value);
         return result.toString();
     }
@@ -79,7 +79,7 @@ public class TestController {
 
         user.setId(1);
         user.setUsername("haley");
-        user.setPassword("haley123");
+        user.setPassword("12345");
         user.setBirthday(new Date());
 
         return user;

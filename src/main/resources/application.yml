@@ -1,0 +1,60 @@
+spring:
+  profiles:
+    active: test
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss:SSS
+  #配置freemarker
+  freemarker:
+    enabled: false
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    prefix:
+    suffix: .ftl
+  #配置thymeleaf(推荐)
+  thymeleaf:
+    enabled: true
+    cache: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+
+
+#配置默认的访问路径"／"修改为spring0to1
+server:
+  context-path: /spring0to1
+  ssl:
+    enabled: false
+    key-store: .keystore
+    key-password: spring0to1
+    key-alias: tomecat
+    key-store-type: JKS
+
+# 数据库配置
+ds:
+  userName: root
+  password: root
+  url: jdbc:mysql://localhost:3306/simpledb
+  driverClassName: com.mysql.jdbc.Driver
+
+#日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+#如果只配置 logging.file，会在项目的当前路径下生成一个 xxx.log 日志文件。
+#如果只配置 logging.path，在 /var/log文件夹生成一个日志文件为 spring.log
+#注：二者不能同时使用，如若同时使用，则只有logging.file生效
+#logging.file=springoto1.log
+logging:
+  path: log
+  pattern:
+    level: INFO
+  level: debug
+
+
+
+
