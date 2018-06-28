@@ -1,5 +1,7 @@
 package com.haley.spring0to1.web.controller;
 
+import com.haley.spring0to1.dao.DemoRepository;
+import com.haley.spring0to1.domain.model.Demo;
 import com.haley.spring0to1.domain.model.User;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class TestController {
 
     @Autowired
     private Runnable runnable;
+
+    @Autowired
+    private DemoRepository demoRepository;
 
     //带参数和属性的Get请求
     @RequestMapping(value = "/testget/{name}/{age}", method = RequestMethod.GET, produces = "text/html;charset=UTF-8", params = "myParam=myValue")
@@ -83,4 +88,7 @@ public class TestController {
         user.setBirthday(new Date());
         return user;
     }
+
+
+
 }

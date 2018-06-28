@@ -1,6 +1,5 @@
 package com.haley;
 
-import com.haley.spring0to1.domain.model.DataSourceProperties;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
