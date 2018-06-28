@@ -10,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping(value = "/api")
 public class TestController {
 
@@ -70,7 +71,7 @@ public class TestController {
         return result.toString();
     }
 
-    @RequestMapping(value ={"/hellp","/hi"})
+    @RequestMapping(value = {"/hellp", "/hi"})
     public String hello(Map<String, Object> map) {
         map.put("msg", "Hello Thymeleaf");
         System.out.println("hello:" + map.size());
@@ -89,6 +90,40 @@ public class TestController {
         return user;
     }
 
+    @PostMapping(value = "/addDemo")
+    public Demo addDemo(@RequestParam("demoName") String demoName,
+                        @RequestParam("demoSize") Integer demoSize) {
+        Demo demo = new Demo();
+        demo.setDemoName(demoName);
+        demo.setDemoSize(demoSize);
+        System.out.println("Demo:" + demo.toString());
+        return demoRepository.save(demo);
+    }
 
+    @DeleteMapping(value = "/deleteDemo/{id}")
+    public void delDemo(@PathVariable("id") Integer id) {
+        demoRepository.delete(id);
+    }
+
+    @PutMapping(value = "/updateDemo/{id}")
+    public Demo updateDemo(@PathVariable("id") Integer id,
+                           @RequestParam("demoName") String demoName,
+                           @RequestParam("demoSize") Integer demoSize){
+        Demo demo = new Demo();
+        demo.setId(id);
+        demo.setDemoName(demoName);
+        demo.setDemoSize(demoSize);
+       return demoRepository.save(demo);
+    }
+
+    @GetMapping("/getDemos")
+    public List<Demo> findAllDemo(){
+        return demoRepository.findAll();
+    }
+
+    @GetMapping("/getOneDemo/{id}")
+    public Demo findOneDemo(@PathVariable("id") Integer id){
+        return demoRepository.findOne(id);
+    }
 
 }
