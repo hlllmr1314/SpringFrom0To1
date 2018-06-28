@@ -1,4 +1,4 @@
-package com.haley;
+package com.haley.spring0to1;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;

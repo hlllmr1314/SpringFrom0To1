@@ -1,3 +1,9 @@
 1,IDEA 直接正常的Run
 2，进入到项目的根目录， 然后mvn spring-boot:run
 3, 进入到项目的根目录，先mvn install编译一下，接着进去target目录下，运行java -jar *.jar
+
+测试发现war直接改成jar，我运行mvn clean install得到jar包，使用上面java -jar *.jar 运行不成功,后来在一个博客上发现是我的姿势不对，正确姿势：
+mvn clean install package spring-boot:repackage
+java -jar xxxx.jar
+
+为了能让服务在后台云， 我们可以使用 nohup java -jar xxxx.jar &
