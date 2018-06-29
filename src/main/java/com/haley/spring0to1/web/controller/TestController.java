@@ -8,8 +8,10 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -92,7 +94,13 @@ public class TestController {
     }
 
     @PostMapping(value = "/addDemo")
-    public Demo addDemo(Demo demo) {
+    public Demo addDemo(@Valid Demo demo, BindingResult bindingResult) {
+
+        if(bindingResult.hasErrors()){
+            System.out.println("add Demo Error,"+bindingResult.getFieldError().getDefaultMessage());
+            return null;
+        }
+
         demo.setDemoName(demo.getDemoName());
         demo.setDemoSize(demo.getDemoSize());
         System.out.println("Demo:" + demo.toString());

@@ -19,7 +19,7 @@ public class Demo {
     @Column(name = "demo_name", nullable = true, length = 20)
     private String demoName;
 
-    @Min(value = 18)
+    @Min(value = 18,message = "不可以小于18")
     private Integer demoSize;
 
     public Integer getId() {
