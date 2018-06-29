@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 @Component
 @Entity
@@ -18,6 +19,7 @@ public class Demo {
     @Column(name = "demo_name", nullable = true, length = 20)
     private String demoName;
 
+    @Min(value = 18)
     private Integer demoSize;
 
     public Integer getId() {

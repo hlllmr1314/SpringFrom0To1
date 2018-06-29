@@ -92,11 +92,9 @@ public class TestController {
     }
 
     @PostMapping(value = "/addDemo")
-    public Demo addDemo(@RequestParam("demoName") String demoName,
-                        @RequestParam("demoSize") Integer demoSize) {
-        Demo demo = new Demo();
-        demo.setDemoName(demoName);
-        demo.setDemoSize(demoSize);
+    public Demo addDemo(Demo demo) {
+        demo.setDemoName(demo.getDemoName());
+        demo.setDemoSize(demo.getDemoSize());
         System.out.println("Demo:" + demo.toString());
         return demoService.addDemo(demo);
     }
@@ -126,7 +124,6 @@ public class TestController {
     public Demo findOneDemo(@PathVariable("id") Integer id) {
         return demoService.findOneDemo(id);
     }
-
 
     @GetMapping(value = "/findDemoName/{id}")
     public String findDemoNameById(@PathVariable("id") Integer id) {
