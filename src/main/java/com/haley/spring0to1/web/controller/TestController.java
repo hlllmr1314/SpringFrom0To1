@@ -127,4 +127,9 @@ public class TestController {
         return demoService.findOneDemo(id);
     }
 
+
+    @GetMapping(value = "/findDemoName/{id}")
+    public String findDemoNameById(@PathVariable("id") Integer id) {
+        return demoService.findDemoNameById(id);
+    }
 }

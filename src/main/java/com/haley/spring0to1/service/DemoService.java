@@ -38,4 +38,8 @@ public class DemoService {
         return demoRepository.findAll();
     }
 
+    public String findDemoNameById(Integer id){
+        return  demoRepository.findDemoNameById(id);
+    }
+
 }
