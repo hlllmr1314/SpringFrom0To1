@@ -3,6 +3,7 @@ package com.haley.spring0to1.web.controller;
 import com.haley.spring0to1.dao.DemoRepository;
 import com.haley.spring0to1.domain.model.Demo;
 import com.haley.spring0to1.domain.model.User;
+import com.haley.spring0to1.service.DemoService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,7 +22,7 @@ public class TestController {
     private Runnable runnable;
 
     @Autowired
-    private DemoRepository demoRepository;
+    private DemoService demoService;
 
     //带参数和属性的Get请求
     @RequestMapping(value = "/testget/{name}/{age}", method = RequestMethod.GET, produces = "text/html;charset=UTF-8", params = "myParam=myValue")
@@ -97,33 +98,33 @@ public class TestController {
         demo.setDemoName(demoName);
         demo.setDemoSize(demoSize);
         System.out.println("Demo:" + demo.toString());
-        return demoRepository.save(demo);
+        return demoService.addDemo(demo);
     }
 
     @DeleteMapping(value = "/deleteDemo/{id}")
     public void delDemo(@PathVariable("id") Integer id) {
-        demoRepository.delete(id);
+        demoService.deleteDemo(id);
     }
 
     @PutMapping(value = "/updateDemo/{id}")
     public Demo updateDemo(@PathVariable("id") Integer id,
                            @RequestParam("demoName") String demoName,
-                           @RequestParam("demoSize") Integer demoSize){
+                           @RequestParam("demoSize") Integer demoSize) {
         Demo demo = new Demo();
         demo.setId(id);
         demo.setDemoName(demoName);
         demo.setDemoSize(demoSize);
-       return demoRepository.save(demo);
+        return demoService.updateDemo(demo);
     }
 
     @GetMapping("/getDemos")
-    public List<Demo> findAllDemo(){
-        return demoRepository.findAll();
+    public List<Demo> findAllDemo() {
+        return demoService.findAllDemo();
     }
 
     @GetMapping("/getOneDemo/{id}")
-    public Demo findOneDemo(@PathVariable("id") Integer id){
-        return demoRepository.findOne(id);
+    public Demo findOneDemo(@PathVariable("id") Integer id) {
+        return demoService.findOneDemo(id);
     }
 
 }
