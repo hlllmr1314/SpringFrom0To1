@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 <html lang="zh">
 <head>
     <meta charset="UTF-8">

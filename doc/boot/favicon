@@ -1,0 +1,9 @@
+spring:
+  mvc:
+    favicon:
+      enabled: false
+
+设置自己的Favicon
+若需要设置自己的Favicon，则只需将自己的favicon.ico文件放置在类路径根目录、类路径META-INF/resources/下、类路径resources/下、类路径static/下或类路径public/下。
+
+这里将favicon.ico放置在src/main/resources/static下。

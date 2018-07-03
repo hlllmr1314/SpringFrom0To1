@@ -74,7 +74,7 @@ public class TestController {
         return result.toString();
     }
 
-    @RequestMapping(value = {"/hellp", "/hi"})
+    @RequestMapping(value = {"/hello", "/hi"})
     public String hello(Map<String, Object> map) {
         map.put("msg", "Hello Thymeleaf");
         System.out.println("hello:" + map.size());
@@ -137,4 +137,5 @@ public class TestController {
     public String findDemoNameById(@PathVariable("id") Integer id) {
         return demoService.findDemoNameById(id);
     }
+
 }
